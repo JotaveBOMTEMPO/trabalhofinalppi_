@@ -160,7 +160,7 @@ app.get('/', check_user_, (req, res) => {
             <body>
                 <h1>Menu</h1>
                 <a href="/cadastro.html">Cadastrar Usuario(s)</a>
-                <a href="/WEBCHAT.html">WEBCHAT ONLINE</a>
+                <a href="/WEBCHAT.html">WEBCHAT</a>
                 <a href="/login.html">Logout</a>
             </body>
             <footer>

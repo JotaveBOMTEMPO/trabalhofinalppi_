@@ -64,11 +64,11 @@ button:hover {
 #chat-box {
     max-width: 600px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: #b8b8b8;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .message {

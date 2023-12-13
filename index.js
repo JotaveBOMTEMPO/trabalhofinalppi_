@@ -28,7 +28,7 @@ function user_process_cad(req, res) {
         
                     <h3>FORMULÁRIO DE CADASTRO</h3>
                     <label class="label" for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Insira seu nome" value="${user_dados_.nome}" required>
+                    <input type="text" id="nome" name="nome" placeholder="Insira seu Nome" value="${user_dados_.nome}" required>
         `;
         if (!user_dados_.nome) {
             sys_resp_scrn += `
@@ -38,27 +38,27 @@ function user_process_cad(req, res) {
 
         sys_resp_scrn += `
                     <label class="label" for="data">Data de nascimento:</label>
-                        <input type="text" id="data" name="data" placeholder="Insira seu aniversario." value="${user_dados_.data}" required>
+                        <input type="text" id="data" name="data" placeholder="Insira sua Data de Nascimento" value="${user_dados_.data}" required>
         `;
         if (!user_dados_.data) {
             sys_resp_scrn += `
-                    <p class="ERROR_">O campo data é obrigatório</p>
+                    <p class="ERROR_">O campo data é obrigatório!</p>
             `;
         }
         
         sys_resp_scrn += `
                     <label class="label" for="usuario">Nickname ou Usuario:</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Insira seu nome de usuário." value="${user_dados_.usuario}" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="Insira seu Nome de Usuário" value="${user_dados_.usuario}" required>
         `;   
         if (!user_dados_.usuario) {
             sys_resp_scrn += `
-                    <p class="ERROR_">O campo Nome de Usuário é obrigatório</p>
+                    <p class="ERROR_">O campo Nome de Usuário é obrigatório!</p>
             `;
         }
         
         sys_resp_scrn += `
                     <br>
-                    <button id="cadastroBTN" type="submit">Cadastrar</button>
+                    <button id="cadastroBTN" type="submit">Cadastrar!</button>
     
                 </form>
             </div>
@@ -86,13 +86,13 @@ function user_process_cad(req, res) {
             <link rel="stylesheet" href="formulario.css">
         </head>
         <body>
-            <h1>Usuários Cadastrados</h1><br>
+            <h1>Usuários já Cadastrados:</h1><br>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th class="label">Nome</th>
-                        <th class="label">Data de aniversario</th>
                         <th class="label">Nome de Usuário</th>
+                        <th class="label">Data de Aniversario</th>
                     </tr>
                 </thead>
                 <tbody>`;
@@ -101,8 +101,8 @@ function user_process_cad(req, res) {
             sys_resp_scrn += `
                 <tr>
                     <td id="caixa">${usu.nome}</td>
-                    <td id="caixa">${usu.data}</td>
                     <td id="caixa">${usu.usuario}</td>
+                    <td id="caixa">${usu.data}</td>
                 </tr>
                     `;
         }
@@ -110,8 +110,8 @@ function user_process_cad(req, res) {
         sys_resp_scrn += `
                 </tbody>
             </table><br>
-            <a class="btn btn-primary" href="/" role="button">Voltar ao Menu</a><br>
-            <a class="btn btn-outline-info" href="/formulario.html" role="button">Acessar Cadastro</a>    
+            <button href="/">Menu</button><br>
+            <button href="/formulario.html">Cadastro</button> 
             </body>
             </html>
                 `;

@@ -34,7 +34,7 @@ select, textarea, button {
 }
 
 button {
-    background: linear-gradient(to bottom, #4caf50, #45a049);
+    background: linear-gradient(to bottom, #04ffff, #ff0099);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -42,13 +42,13 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #45a049, #4caf50);
+    background: linear-gradient(to bottom, #ffffff, #757575);
 }
 
 .btn-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .btn-voltar {

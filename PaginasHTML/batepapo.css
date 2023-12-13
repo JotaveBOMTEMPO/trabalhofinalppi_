@@ -1,13 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
     background: linear-gradient(to bottom, #3498db, #9b59b6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 h1 {
     text-align: center;
-    color: #656565;
-    background-color: #04ffff;
+    color: #ffffff;
 }
 
 #chat-form {

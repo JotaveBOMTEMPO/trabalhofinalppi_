@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f4f4f4;
+    background: linear-gradient(to bottom, #3498db, #9b59b6);
 }
 
 h1 {
@@ -14,6 +14,10 @@ h1 {
     flex-direction: column;
     width: 300px;
     margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 label {
@@ -30,7 +34,7 @@ select, textarea, button {
 }
 
 button {
-    background-color: #4caf50;
+    background: linear-gradient(to bottom, #4caf50, #45a049);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -38,22 +42,23 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background: linear-gradient(to bottom, #45a049, #4caf50);
 }
 
 .btn-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 .btn-voltar {
-    max-width: 150px; 
+    max-width: 150px;
 }
 
 #chat-box {
     max-width: 600px;
     margin: 20px auto;
+    background-color: #fff;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 10px;

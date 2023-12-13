@@ -1,6 +1,5 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -9,11 +8,11 @@ body {
 }
 
 h1 {
+    font-weight: bolder;
     color: #ffffff; 
 }
 
 a {
-    display: inline-block;
     padding: 10px 20px;
     margin-top: 20px;
     background: linear-gradient(to bottom, #3498db, #9b59b6); 

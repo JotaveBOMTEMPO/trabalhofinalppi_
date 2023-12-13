@@ -39,14 +39,14 @@ select, textarea{
 }
 
 button {
-    background: linear-gradient(to bottom, #00fffb, #ea00ff); /* Degradê verde */
+    background: linear-gradient(to bottom, #00fffb, #ea00ff);
     color: #fff;
     padding: 10px;
     cursor: pointer
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #ffffff, #000000); /* Mudança de degradê no hover */
+    background: linear-gradient(to bottom, #ffffff, #000000);
 }
 
 #WEBCHAT {

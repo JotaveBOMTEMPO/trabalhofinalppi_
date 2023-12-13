@@ -20,7 +20,7 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Adicionado para centralizar os elementos internos */
+    align-items: center;
 }
 
 h3, .label {
@@ -50,11 +50,11 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-right: 10px; /* Espaçamento entre botões */
+    margin-right: 10px;
 }
 
 button:last-child, a:last-child {
-    margin-right: 0; /* Remove o espaçamento à direita do último botão */
+    margin-right: 0;
 }
 
 button:hover {

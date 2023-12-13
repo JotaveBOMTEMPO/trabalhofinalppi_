@@ -13,7 +13,7 @@ h1 {
     color: #ffffff;
 }
 
-#chat-form {
+#WEBCHAT_form_ {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -50,18 +50,7 @@ button:hover {
     background: linear-gradient(to bottom, #ffffff, #757575);
 }
 
-.btn-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
-.btn-voltar {
-    max-width: 150px;
-}
-
-#chat-box {
+#WEBCHAT {
     max-width: 600px;
     margin: 20px auto;
     background-color: #b8b8b8;

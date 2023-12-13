@@ -107,8 +107,8 @@ else {
         sys_resp_scrn += `
                     </tbody>
                 </table><br>
-            <a href="/">Menu</a>
-            <a href="/cadastro.html">Cadastro</a> 
+            <a href="/"><button>Menu</button></a>
+            <a href="/cadastro.html"><button>Cadastro</button></a> 
         </body>
         </html>
                 `;

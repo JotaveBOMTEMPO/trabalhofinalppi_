@@ -42,7 +42,7 @@ a {
     text-decoration: none;
 }
 
-button, a {
+button {
     background: linear-gradient(to bottom, #00d9ff, #ff00ee);
     color: #fff;
     padding: 10px;

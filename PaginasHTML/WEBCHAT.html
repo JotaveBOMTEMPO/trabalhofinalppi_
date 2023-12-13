@@ -7,7 +7,7 @@
     <title>Webchat Online</title>
 </head>
 <body>
-    <form id="chat-form">
+    <form id="WEBCHAT_form_">
         <h1>Bem Vindo ao WEBCHAT!</h1>
         <label for="user">Selecione um Usuário:</label>
         <select id="user" name="user" required></select>
@@ -15,7 +15,7 @@
         <textarea id="message" name="message" placeholder="Digite sua Mensagem" required></textarea>
         <button type="button" onclick="sendMessage()">Enviar</button>
     </form>
-    <div id="chat-box">
+    <div id="WEBCHAT">
         <div id="chat-messages-container">
             <div class="message">
                 <span class="timestamp"></span>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="btn-container">
-        <a href="/"><button class="btn-voltar">Menu</button></a>
+        <a href="/"><button>Menu</button></a>
     </div>
 
     <script>

@@ -152,14 +152,14 @@ app.get('/', check_user_, (req, res) => {
                 <meta charset="UTF-8>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" type="text/css" href="menuStyle.css">
-                <title>Menu do sistema</title>
+                <title>Menu</title>
                 
             </head>
             <body>
                 <h1>Menu</h1>
                 <a href="/cadastro.html">Cadastrar Usuário(s)</a>
                 <a href="/WEBCHAT.html">WEBCHAT ONLINE</a>
-                <a href="/login.html">Login</a>
+                <a href="/login.html">Voltar ao Login</a>
             </body>
             <footer>
                 <p>Ultimo Acesso: ${last_ac_user_}</p>

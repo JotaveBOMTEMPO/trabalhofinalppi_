@@ -4,6 +4,7 @@
   "description": "Trabalho Final de PPI - João Victor Bomtempo Costa",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "ppi"
   },
   "repository": {

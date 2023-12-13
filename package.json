@@ -1,0 +1,23 @@
+{
+  "name": "trabalho_final_de_ppi_",
+  "version": "1.0.0",
+  "description": "Trabalho Final de PPI - João Victor Bomtempo Costa",
+  "main": "index.js",
+  "scripts": {
+    "test": "ppi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "trabalhofinalppi_"
+  },
+  "keywords": [
+    "ppi"
+  ],
+  "author": "João Victor Bomtempo Costa",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}

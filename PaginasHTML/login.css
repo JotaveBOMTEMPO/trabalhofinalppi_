@@ -56,7 +56,7 @@ input {
 }
 
 button {
-    background: linear-gradient(to bottom, #4caf50, #45a049); /* Degradê verde */
+    background: linear-gradient(to bottom, #00fffb, #ea00ff); /* Degradê verde */
     color: #fff;
     padding: 10px;
     border: none;
@@ -66,5 +66,5 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #45a049, #4caf50); /* Mudança de degradê no hover */
+    background: linear-gradient(to bottom, #ffffff, #000000); /* Mudança de degradê no hover */
 }

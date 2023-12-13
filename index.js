@@ -140,7 +140,7 @@ app.use(session({
     }
 }));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(process.cwd(), './PaginasHTML')));
+app.use(express.static(path.join(process.cwd(), './paginas')));
 app.get('/', check_user_, (req, res) => {
     const last_ac_user_ = req.cookies.acess_usu_ult;
     const data = new Date();
@@ -170,7 +170,7 @@ app.get('/', check_user_, (req, res) => {
     `)
 });
 app.get('/cadastro.html', check_user_, (req, res) => {
-    res.sendFile(path.join(process.cwd(), './PaginasHTML/cadastro.html'));
+    res.sendFile(path.join(process.cwd(), './paginas/cadastro.html'));
 });
 app.post('/cadastro.html', check_user_, user_process_cad);
 app.post('/login', (req, res) => {

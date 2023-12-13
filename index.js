@@ -26,7 +26,7 @@ function user_process_cad(req, res) {
                 <form action="/cadastro.html" method="POST">
         
                     <h3>FORMULÁRIO DE CADASTRO</h3>
-                    <label class="label" for="nome">Nome:</label>
+                    <label class="label" for="nome">Digite o Nome:</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite o Nome" value="${user_dados_.nome}" required>
         `;
         if (!user_dados_.nome) {
@@ -35,7 +35,7 @@ function user_process_cad(req, res) {
             `;
         }
         sys_resp_scrn += `
-                    <label class="label" for="data">Data de nascimento:</label>
+                    <label class="label" for="data">Digite a Data de nascimento:</label>
                         <input type="text" id="data" name="data" placeholder="Digite a Data de Nascimento" value="${user_dados_.data}" required>
         `;
         if (!user_dados_.data) {
@@ -44,7 +44,7 @@ function user_process_cad(req, res) {
             `;
         }
         sys_resp_scrn += `
-                    <label class="label" for="usuario">Nickname ou Usuario:</label>
+                    <label class="label" for="usuario">Digite o Nome de Usuario:</label>
                         <input type="text" id="usuario" name="usuario" placeholder="Digite o Nome de Usuário" value="${user_dados_.usuario}" required>
         `;   
         if (!user_dados_.usuario) {
@@ -107,7 +107,7 @@ else {
         sys_resp_scrn += `
                     </tbody>
                 </table><br>
-            <a href="/">Menu</a><br>
+            <a href="/">Menu</a>
             <a href="/cadastro.html">Cadastro</a> 
         </body>
         </html>

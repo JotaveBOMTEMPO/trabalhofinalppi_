@@ -109,6 +109,7 @@ else {
                 </table><br>
             <a href="/"><button>Menu</button></a>
             <a href="/cadastro.html"><button>Cadastro</button></a> 
+            <a href="/WEBCHAT.html"><button>WEBCHAT</button></a> 
             <a href="/login.html"><button>Logout</button></a> 
         </body>
         </html>

@@ -2,7 +2,6 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
-
 const porta = 3000;
 const host = '0.0.0.0';
 const user_list = [];
@@ -19,12 +18,12 @@ function user_process_cad(req, res) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="formulario.css">
+            <link rel="stylesheet" type="text/css" href="cadastroStyle.css">
             <title>Cadastro</title>
         </head>
         <body>
             <div id="caixa">
-                <form action="/formulario.html" method="POST">
+                <form action="/cadastro.html" method="POST">
         
                     <h3>FORMULÁRIO DE CADASTRO</h3>
                     <label class="label" for="nome">Nome:</label>
@@ -35,7 +34,6 @@ function user_process_cad(req, res) {
                     <p class="ERROR_">O campo Nome é obrigatório!</p>
             `;
         }
-
         sys_resp_scrn += `
                     <label class="label" for="data">Data de nascimento:</label>
                         <input type="text" id="data" name="data" placeholder="Insira sua Data de Nascimento" value="${user_dados_.data}" required>
@@ -45,7 +43,6 @@ function user_process_cad(req, res) {
                     <p class="ERROR_">O campo data é obrigatório!</p>
             `;
         }
-        
         sys_resp_scrn += `
                     <label class="label" for="usuario">Nickname ou Usuario:</label>
                         <input type="text" id="usuario" name="usuario" placeholder="Insira seu Nome de Usuário" value="${user_dados_.usuario}" required>
@@ -55,7 +52,6 @@ function user_process_cad(req, res) {
                     <p class="ERROR_">O campo Nome de Usuário é obrigatório!</p>
             `;
         }
-        
         sys_resp_scrn += `
                     <br>
                     <button id="cadastroBTN" type="submit">Cadastrar!</button>
@@ -67,8 +63,8 @@ function user_process_cad(req, res) {
         `;
         
         return res.end(sys_resp_scrn);
-
-    } else {
+} 
+else {
         const usu = {
             nome: user_dados_.nome,
             data: user_dados_.data,
@@ -79,41 +75,42 @@ function user_process_cad(req, res) {
 
         sys_resp_scrn = `
         <!DOCTYPE html>
+        <html lang="pt-BR">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Cadastro de Usuário</title>
-            <link rel="stylesheet" href="formulario.css">
+            <link rel="stylesheet" href="cadastroStyle.css">
         </head>
         <body>
             <h1>Usuários já Cadastrados:</h1><br>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th class="label">Nome</th>
-                        <th class="label">Nome de Usuário</th>
-                        <th class="label">Data de Aniversario</th>
-                    </tr>
-                </thead>
-                <tbody>`;
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="label">Nome</th>
+                            <th class="label">Nome de Usuário</th>
+                            <th class="label">Data de Aniversario</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
         
         for (const usu of user_list) {
             sys_resp_scrn += `
-                <tr>
-                    <td id="caixa">${usu.nome}</td>
-                    <td id="caixa">${usu.usuario}</td>
-                    <td id="caixa">${usu.data}</td>
-                </tr>
+                          <tr>
+                            <td id="caixa">${usu.nome}</td>
+                            <td id="caixa">${usu.usuario}</td>
+                            <td id="caixa">${usu.data}</td>
+                        </tr>
                     `;
         }
 
         sys_resp_scrn += `
-                </tbody>
-            </table><br>
+                    </tbody>
+                </table><br>
             <a href="/">Menu</a><br>
-            <a href="/formulario.html">Cadastro</a> 
-            </body>
-            </html>
+            <a href="/cadastro.html">Cadastro</a> 
+        </body>
+        </html>
                 `;
 
         return res.end(sys_resp_scrn);
@@ -154,13 +151,13 @@ app.get('/', check_user_, (req, res) => {
             <head>
                 <meta charset="UTF-8>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" type="text/css" href="menu.css">
+                <link rel="stylesheet" type="text/css" href="menuStyle.css">
                 <title>Menu do sistema</title>
                 
             </head>
             <body>
                 <h1>Menu</h1>
-                <a href="/formulario.html">Cadastrar Usuário(s)</a>
+                <a href="/cadastro.html">Cadastrar Usuário(s)</a>
                 <a href="/WEBCHAT.html">WEBCHAT ONLINE</a>
                 <a href="/login.html">Login</a>
             </body>
@@ -170,10 +167,10 @@ app.get('/', check_user_, (req, res) => {
         </html>        
     `)
 });
-app.get('/formulario.html', check_user_, (req, res) => {
-    res.sendFile(path.join(process.cwd(), './PaginasHTML/formulario.html'));
+app.get('/cadastro.html', check_user_, (req, res) => {
+    res.sendFile(path.join(process.cwd(), './PaginasHTML/cadastro.html'));
 });
-app.post('/formulario.html', check_user_, user_process_cad);
+app.post('/cadastro.html', check_user_, user_process_cad);
 app.post('/login', (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
@@ -187,16 +184,16 @@ app.post('/login', (req, res) => {
         res.end(`
             <!DOCTYPE html>
             <html lang="pt-BR">
-                <head>
+            <head>
                 <meta charset="UTF-8>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Falha no login</title>
-                    <link rel="stylesheet" type="text/css" href="errologin.css">
-                </head>
-                <body>
-                    <h1>Usuario ou senha invalidos</h1>
-                    <a href="/login.html">Voltar ao login</a>
-                </body>
+                <title>ERROR</title>
+                <link rel="stylesheet" type="text/css" href="ERROR.css">
+            </head>
+            <body>
+                <h1>Usuario ou senha invalidos</h1><br>
+                <a href="/login.html">Voltar ao login</a>
+            </body>
             </html>
         `)
     }

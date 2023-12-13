@@ -31,17 +31,18 @@
     </div>
 
     <script>
-        window.onload = function() {
-            user_loading();
-            msg_loading();
+        window.onload = function () {
+            loadUsers();
+            loadMessages();
         };
-        function user_loading() {
+
+        function loadUsers() {
             fetch('/get-usuarios')
                 .then(response => response.json())
                 .then(data => {
                     const selectUsuario = document.getElementById('user');
                     selectUsuario.innerHTML = "";
-    
+
                     data.usuarios.forEach(usuario => {
                         const novoOption = document.createElement('option');
                         novoOption.value = usuario.usuario;
@@ -52,49 +53,46 @@
                 .catch(error => console.error('Ocorreu um Erro ao Obter os Usuários:', error));
         }
 
-        function msg_loading() {
-        fetch('/get-mensagens')
-            .then(response => response.json())
-            .then(data => {
-                const chatContainer = document.getElementById('chat-messages-container');
-                chatContainer.innerHTML = '';
+        function loadMessages() {
+            fetch('/get-mensagens')
+                .then(response => response.json())
+                .then(data => {
+                    const chatContainer = document.getElementById('chat-messages-container');
+                    chatContainer.innerHTML = '';
 
-                data.forEach(msg => {
-                    const messageDiv = document.createElement('div');
-                    messageDiv.className = 'message';
-                    messageDiv.innerHTML = `<strong>${msg.usuario}:</strong> ${msg.mensagem}<span class="timestamp">${msg.timestamp}</span>`;
-                    chatContainer.appendChild(messageDiv);
-                });
-            })
-            .catch(error => console.error('Erro ao obter mensagens:', error));
-    }
+                    data.forEach(msg => {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.className = 'message';
+                        messageDiv.innerHTML = `<strong>${msg.usuario}:</strong> ${msg.mensagem}<span class="timestamp">${msg.timestamp}</span>`;
+                        chatContainer.appendChild(messageDiv);
+                    });
+                })
+                .catch(error => console.error('Erro ao obter mensagens:', error));
+        }
 
-    function sendMessage() {
-    const usuario = document.getElementById('user').value;
-    const mensagem = document.getElementById('message').value;
+        function sendMessage() {
+            const usuario = document.getElementById('user').value;
+            const mensagem = document.getElementById('message').value;
 
-    if (usuario && mensagem) {
-        fetch('/enviar-mensagem', {
-            method: 'POST',
-            body: new URLSearchParams({ usuario, mensagem }),
-        })
-        .then(response => response.json())
-        .then(result => {
-            if (result.success) {
-                document.getElementById('message').value = '';
-                msg_loading();
+            if (usuario && mensagem) {
+                fetch('/enviar-mensagem', {
+                    method: 'POST',
+                    body: new URLSearchParams({ usuario, mensagem }),
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success) {
+                            document.getElementById('message').value = '';
+                            loadMessages();
+                        } else {
+                            alert('Erro ao enviar mensagem: ' + result.error);
+                        }
+                    })
+                    .catch(error => console.error('Erro na requisição:', error));
             } else {
-                alert('Erro ao enviar mensagem: ' + result.error);
+                alert('Usuário e mensagem são obrigatórios.');
             }
-        })
-        .catch(error => console.error('Erro na requisição:', error));
-    } else {
-        alert('Usuário e mensagem são obrigatórios.');
-    }
-}
-
-
+        }
     </script>
 </body>
 </html>
-    

@@ -110,8 +110,8 @@ function user_process_cad(req, res) {
         sys_resp_scrn += `
                 </tbody>
             </table><br>
-            <button href="/">Menu</button><br>
-            <button href="/formulario.html">Cadastro</button> 
+            <a href="/">Menu</a><br>
+            <a href="/formulario.html">Cadastro</a> 
             </body>
             </html>
                 `;

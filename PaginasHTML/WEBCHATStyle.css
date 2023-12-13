@@ -30,7 +30,7 @@ label {
     color: #555;
 }
 
-select, textarea, button {
+select, textarea{
     margin-top: 5px;
     padding: 8px;
     border-radius: 5px;
@@ -39,18 +39,14 @@ select, textarea, button {
 }
 
 button {
-    background: linear-gradient(to bottom, #04ffff, #ff0099);
+    background: linear-gradient(to bottom, #00fffb, #ea00ff); /* Degradê verde */
     color: #fff;
-    transition: background-color 0.3s ease;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
     padding: 10px;
+    cursor: pointer
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #ffffff, #757575);
+    background: linear-gradient(to bottom, #ffffff, #000000); /* Mudança de degradê no hover */
 }
 
 #WEBCHAT {

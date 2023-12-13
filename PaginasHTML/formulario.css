@@ -24,7 +24,7 @@ form {
 }
 
 h3 {
-    color: #818181;
+    color: #ffffff;
 }
 
 .label {
@@ -46,7 +46,7 @@ a{
 }
 
 button, a {
-    background: linear-gradient(to bottom, #4caf50, #45a049);
+    background: linear-gradient(to bottom, #00d9ff, #ff00ee);
     color: #fff;
     padding: 10px;
     border: none;
@@ -56,5 +56,5 @@ button, a {
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #45a049, #4caf50);
+    background: linear-gradient(to bottom, #ffffff, #000000);
 }

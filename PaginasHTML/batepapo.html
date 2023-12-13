@@ -11,8 +11,6 @@
         <h1>Bem Vindo ao WEBCHAT!</h1>
         <label for="user">Selecione um Usuário:</label>
         <select id="user" name="user" required>
-            <option value="usuario1">Usuário 1</option>
-            <option value="usuario2">Usuário 2</option>
         </select>
 
         <label for="message">Escreva uma Mensagem:</label>
@@ -38,11 +36,10 @@
 
     <script>
         window.onload = function() {
-            carregarUsuarios();
-            carregarMensagens();
+            user_loading();
+            msg_loading();
         };
-    
-        function carregarUsuarios() {
+        function user_loading() {
             fetch('/get-usuarios')
                 .then(response => response.json())
                 .then(data => {
@@ -56,10 +53,10 @@
                         selectUsuario.add(novoOption);
                     });
                 })
-                .catch(error => console.error('Erro ao obter usuários:', error));
+                .catch(error => console.error('Ocorreu um Erro ao Obter os Usuários:', error));
         }
 
-        function carregarMensagens() {
+        function msg_loading() {
         fetch('/get-mensagens')
             .then(response => response.json())
             .then(data => {
@@ -89,7 +86,7 @@
         .then(result => {
             if (result.success) {
                 document.getElementById('message').value = '';
-                carregarMensagens();
+                msg_loading();
             } else {
                 alert('Erro ao enviar mensagem: ' + result.error);
             }

@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-    color: #d9534f; 
+    color: #ffffff; 
 }
 
 a {
@@ -23,5 +23,6 @@ a {
 }
 
 a:hover {
-    background-color: #adeeaf; /
+    background-color: #00ffff;
+    border-radius: 5px;
 }

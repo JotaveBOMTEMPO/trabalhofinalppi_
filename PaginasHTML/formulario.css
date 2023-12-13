@@ -1,8 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to top, #3498db, #9b59b6);
 }
 
 #caixa {

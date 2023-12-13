@@ -8,16 +8,16 @@
 </head>
 <body>
     <form id="chat-form">
-        <h1>Webchat Online</h1>
-        <label for="user">Usuário:</label>
+        <h1>Bem Vindo ao WEBCHAT!</h1>
+        <label for="user">Selecione um Usuário:</label>
         <select id="user" name="user" required>
             <option value="usuario1">Usuário 1</option>
             <option value="usuario2">Usuário 2</option>
         </select>
 
-        <label for="message">Mensagem:</label>
+        <label for="message">Escreva uma Mensagem:</label>
         <textarea id="message" name="message" placeholder="Digite sua mensagem" required></textarea>
-        <button type="button" onclick="sendMessage()">Enviar Mensagem</button>
+        <button type="button" onclick="sendMessage()">Enviar</button>
     </form>
     <div id="chat-box">
         <div id="chat-messages-container">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="btn-container">
-        <a href="/"><button class="btn-voltar">Voltar ao Menu</button></a>
+        <a href="/"><button class="btn-voltar">Menu</button></a>
     </div>
 
     <script>

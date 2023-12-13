@@ -1,0 +1,61 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to top, #3498db, #9b59b6);
+}
+
+#caixa {
+    background: linear-gradient(to bottom, #3498db, #9b59b6);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 200px;
+    text-align: center;
+    margin: 50px auto;
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+.label {
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+a{
+    text-decoration: none;
+}
+
+button, a {
+    background: linear-gradient(to bottom, #00d9ff, #ff00ee);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #ffffff, #000000);
+}

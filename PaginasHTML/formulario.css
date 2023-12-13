@@ -1,4 +1,5 @@
 body {
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +27,7 @@ h3 {
     color: #818181;
 }
 
-.rotul {
+.label {
     margin-top: 10px;
 }
 

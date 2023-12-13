@@ -163,8 +163,8 @@ app.get('/', check_user_, (req, res) => {
             </head>
             <body>
                 <h1>Menu</h1>
-                <a href="/formulario.html">Cadastro de Novo Usuario</a>
-                <a href="/batepapo.html">Acesso ao bate papo</a>
+                <a href="/formulario.html">Cadastrar Usuário(s)</a>
+                <a href="/batepapo.html">WEBCHAT ONLINE</a>
             </body>
             <footer>
                 <p>Ultimo Acesso: ${last_ac_user_}</p>

@@ -121,7 +121,6 @@ function user_process_cad(req, res) {
     }
 }
 
-
 function check_user_(req, res, next) {
     if (req.session.checked_user_) {
         next();
@@ -131,8 +130,8 @@ function check_user_(req, res, next) {
 }
 
 const app = express();
-app.use(cookieParser());
 
+app.use(cookieParser());
 app.use(session({
     secret: "myscrtky",
     resave: true,
@@ -140,12 +139,9 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 30,
     }
-}))
-
+}));
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static(path.join(process.cwd(), './PaginasHTML')));
-
 app.get('/', check_user_, (req, res) => {
     const last_ac_user_ = req.cookies.acess_usu_ult;
     const data = new Date();
@@ -165,7 +161,7 @@ app.get('/', check_user_, (req, res) => {
             <body>
                 <h1>Menu</h1>
                 <a href="/formulario.html">Cadastrar Usuário(s)</a>
-                <a href="/batepapo.html">WEBCHAT ONLINE</a>
+                <a href="/WEBCHAT.html">WEBCHAT ONLINE</a>
                 <a href="/login.html">Login</a>
             </body>
             <footer>
@@ -174,13 +170,10 @@ app.get('/', check_user_, (req, res) => {
         </html>        
     `)
 });
-
 app.get('/formulario.html', check_user_, (req, res) => {
     res.sendFile(path.join(process.cwd(), './PaginasHTML/formulario.html'));
 });
-
 app.post('/formulario.html', check_user_, user_process_cad);
-
 app.post('/login', (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
@@ -208,15 +201,12 @@ app.post('/login', (req, res) => {
         `)
     }
 });
-
 app.get('/get-usuarios', (req, res) => {
     res.json({ usuarios: user_list });
 });
-
 function getCurrentTimestamp() {
     return new Date().toLocaleString();
 }
-
 app.post('/enviar-mensagem', check_user_, (req, res) => {
     const usuario = req.body.usuario;
     const mensagem = req.body.mensagem;
@@ -230,12 +220,9 @@ app.post('/enviar-mensagem', check_user_, (req, res) => {
         res.status(400).json({ success: false, error: 'Usuário e mensagem são obrigatórios' });
     }
 });
-
 app.get('/get-mensagens', check_user_, (req, res) => {
     res.json(messages);
 });
-
-
 app.listen(porta, host, () => {
     console.log(`Servidor rodando na url http://localhost:3000`);
 });

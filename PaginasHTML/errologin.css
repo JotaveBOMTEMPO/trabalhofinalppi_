@@ -16,13 +16,13 @@ a {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: #4caf50; 
+    background: linear-gradient(to bottom, #3498db, #9b59b6); 
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
 }
 
 a:hover {
-    background-color: #00ffff;
+    background: linear-gradient(to bottom, #ffffff, #000000);
     border-radius: 5px;
 }

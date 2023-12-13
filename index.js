@@ -27,7 +27,7 @@ function user_process_cad(req, res) {
         
                     <h3>FORMULÁRIO DE CADASTRO</h3>
                     <label class="label" for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" value="${user_dados_.nome}" required>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o Nome" value="${user_dados_.nome}" required>
         `;
         if (!user_dados_.nome) {
             sys_resp_scrn += `
@@ -36,7 +36,7 @@ function user_process_cad(req, res) {
         }
         sys_resp_scrn += `
                     <label class="label" for="data">Data de nascimento:</label>
-                        <input type="text" id="data" name="data" placeholder="Digite sua Data de Nascimento" value="${user_dados_.data}" required>
+                        <input type="text" id="data" name="data" placeholder="Digite a Data de Nascimento" value="${user_dados_.data}" required>
         `;
         if (!user_dados_.data) {
             sys_resp_scrn += `
@@ -45,7 +45,7 @@ function user_process_cad(req, res) {
         }
         sys_resp_scrn += `
                     <label class="label" for="usuario">Nickname ou Usuario:</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Digite seu Nome de Usuário" value="${user_dados_.usuario}" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="Digite o Nome de Usuário" value="${user_dados_.usuario}" required>
         `;   
         if (!user_dados_.usuario) {
             sys_resp_scrn += `

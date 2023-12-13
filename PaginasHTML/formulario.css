@@ -40,6 +40,10 @@ input {
     border-radius: 4px;
 }
 
+a{
+    text-decoration: none;
+}
+
 button, a {
     background: linear-gradient(to bottom, #4caf50, #45a049);
     color: #fff;

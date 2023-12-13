@@ -86,7 +86,7 @@ function user_process_cad(req, res) {
             <link rel="stylesheet" href="formulario.css">
         </head>
         <body>
-            <h1>Usuários Cadastrados</h1>
+            <h1>Usuários Cadastrados</h1><br>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -109,8 +109,8 @@ function user_process_cad(req, res) {
 
         sys_resp_scrn += `
                 </tbody>
-            </table>
-            <a class="btn btn-primary" href="/" role="button">Voltar ao Menu</a>
+            </table><br>
+            <a class="btn btn-primary" href="/" role="button">Voltar ao Menu</a><br>
             <a class="btn btn-outline-info" href="/formulario.html" role="button">Acessar Cadastro</a>    
             </body>
             </html>

@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "Trabalho Final de PPI - João Victor Bomtempo Costa",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "ppi"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "trabalhofinalppi_"
+    "url": "git+https://github.com/JotaveBOMTEMPO/trabalhofinalppi_.git"
   },
-  "keywords": [
-    "ppi"
-  ],
   "author": "João Victor Bomtempo Costa",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JotaveBOMTEMPO/trabalhofinalppi_/issues"
+  },
+  "homepage": "https://github.com/JotaveBOMTEMPO/trabalhofinalppi_#readme",
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",

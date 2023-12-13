@@ -147,13 +147,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd(), './PaginasHTML')));
 
 app.get('/', check_user_, (req, res) => {
-    const last_ac_user_ = req.cookies.DataUltimoAcesso;
+    const last_ac_user_ = req.cookies.acess_usu_ult;
     const data = new Date();
-    res.cookie("DataUltimoAcesso", data.toLocaleString(), {
+    res.cookie("acess_usu_ult", data.toLocaleString(), {
         maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true    
     });
     return res.end(`
         <!DOCTYPE html>
+        <html lang="pt-BR">
             <head>
                 <meta charset="UTF-8>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,15 +193,18 @@ app.post('/login', (req, res) => {
         console.log("Login falhou. Usuário e(ou) senha incorretos."); 
         res.end(`
             <!DOCTYPE html>
+            <html lang="pt-BR">
                 <head>
-                    <meta charset="UTF-8">
+                <meta charset="UTF-8>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Falha no login</title>
                     <link rel="stylesheet" type="text/css" href="errologin.css">
                 </head>
                 <body>
                     <h1>Usuario ou senha invalidos</h1>
                     <a href="/login.html">Voltar ao login</a>
-                </body> 
+                </body>
+            </html>
         `)
     }
 });

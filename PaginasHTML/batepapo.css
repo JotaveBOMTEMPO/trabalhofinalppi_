@@ -2,18 +2,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos no espaço disponível */
 }
 
 h1 {
     text-align: center;
     color: #333;
+    width: 100%;
 }
 
 #chat-form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin: 20px auto;
+    margin-right: 20px; /* Adiciona um espaço à direita do formulário */
 }
 
 label {
@@ -53,11 +56,15 @@ button:hover {
 
 #chat-box {
     max-width: 600px;
-    margin: 20px auto;
+    margin-left: 20px; /* Adiciona um espaço à esquerda da div "chat-box" */
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chat-messages-container {
+    /* Adicione estilos conforme necessário para o container de mensagens */
 }
 
 .message {

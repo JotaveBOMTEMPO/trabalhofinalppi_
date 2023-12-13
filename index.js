@@ -22,7 +22,7 @@ function user_process_cad(req, res) {
             <title>Cadastro</title>
         </head>
         <body>
-            <div id="caixa">
+            <div id="cad_box">
                 <form action="/cadastro.html" method="POST">
         
                     <h3>FORMULÁRIO DE CADASTRO</h3>
@@ -109,6 +109,7 @@ else {
                 </table><br>
             <a href="/"><button>Menu</button></a>
             <a href="/cadastro.html"><button>Cadastro</button></a> 
+            <a href="/login.html"><button>Logout</button></a> 
         </body>
         </html>
                 `;
@@ -159,7 +160,7 @@ app.get('/', check_user_, (req, res) => {
                 <h1>Menu</h1>
                 <a href="/cadastro.html">Cadastrar Usuario(s)</a>
                 <a href="/WEBCHAT.html">WEBCHAT ONLINE</a>
-                <a href="/login.html">Voltar ao Login</a>
+                <a href="/login.html">Logout</a>
             </body>
             <footer>
                 <p>Ultimo Acesso: ${last_ac_user_}</p>
@@ -192,7 +193,7 @@ app.post('/login', (req, res) => {
             </head>
             <body>
                 <h1>Usuario ou senha invalidos</h1><br>
-                <a href="/login.html">Voltar ao login</a>
+                <a href="/login.html">Tentar Novamente</a>
             </body>
             </html>
         `)

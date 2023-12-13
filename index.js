@@ -90,9 +90,9 @@ function user_process_cad(req, res) {
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Data de aniversario</th>
-                        <th>Nome de Usuário</th>
+                        <th class="rotul">Nome</th>
+                        <th class="rotul">Data de aniversario</th>
+                        <th class="rotul">Nome de Usuário</th>
                     </tr>
                 </thead>
                 <tbody>`;
@@ -100,9 +100,9 @@ function user_process_cad(req, res) {
         for (const usu of user_list) {
             sys_resp_scrn += `
                 <tr>
-                    <td>${usu.nome}</td>
-                    <td>${usu.data}</td>
-                    <td>${usu.usuario}</td>
+                    <td id="caixa">${usu.nome}</td>
+                    <td id="caixa">${usu.data}</td>
+                    <td id="caixa">${usu.usuario}</td>
                 </tr>
                     `;
         }
@@ -111,8 +111,7 @@ function user_process_cad(req, res) {
                 </tbody>
             </table>
             <a class="btn btn-primary" href="/" role="button">Voltar ao Menu</a>
-            <a class="btn btn-outline-info" href="/formulario.html" role="button">Acessar Cadastro</a>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    
+            <a class="btn btn-outline-info" href="/formulario.html" role="button">Acessar Cadastro</a>    
             </body>
             </html>
                 `;

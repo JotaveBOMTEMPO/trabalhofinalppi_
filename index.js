@@ -5,16 +5,15 @@ import session from 'express-session';
 
 const porta = 3000;
 const host = '0.0.0.0';
-const listaUSU = [];
+const user_list = [];
 const messages = [];
 
-function processaCadastroUsuario(req, res) {
-    const dados = req.body;
+function user_process_cad(req, res) {
+    const user_dados_ = req.body;
+    let sys_resp_scrn = '';
 
-    let conteudoResposta = '';
-
-    if (!(dados.nome && dados.data && dados.usuario )) {
-        conteudoResposta = `
+    if (!(user_dados_.nome && user_dados_.data && user_dados_.usuario )) {
+        sys_resp_scrn = `
         <!DOCTYPE html>
         <html lang="pt-BR">
         <head>
@@ -29,35 +28,35 @@ function processaCadastroUsuario(req, res) {
         
                     <h3>CADASTRO</h3>
                     <label class="rotul" for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Insira seu nome." value="${dados.nome}" required>
+                    <input type="text" id="nome" name="nome" placeholder="Insira seu nome." value="${user_dados_.nome}" required>
         `;
-        if (!dados.nome) {
-            conteudoResposta += `
+        if (!user_dados_.nome) {
+            sys_resp_scrn += `
                     <p class="rockDanger">O campo Nome é obrigatório</p>
             `;
         }
 
-        conteudoResposta += `
+        sys_resp_scrn += `
                     <label class="rotul" for="data">Data de nascimento:</label>
-                        <input type="text" id="data" name="data" placeholder="Insira seu aniversario." value="${dados.data}" required>
+                        <input type="text" id="data" name="data" placeholder="Insira seu aniversario." value="${user_dados_.data}" required>
         `;
-        if (!dados.data) {
-            conteudoResposta += `
+        if (!user_dados_.data) {
+            sys_resp_scrn += `
                     <p class="rockDanger">O campo data é obrigatório</p>
             `;
         }
         
-        conteudoResposta += `
+        sys_resp_scrn += `
                     <label class="rotul" for="usuario">Nickname ou Usuario:</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Insira seu nome de usuário." value="${dados.usuario}" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="Insira seu nome de usuário." value="${user_dados_.usuario}" required>
         `;   
-        if (!dados.usuario) {
-            conteudoResposta += `
+        if (!user_dados_.usuario) {
+            sys_resp_scrn += `
                     <p class="rockDanger">O campo Nome de Usuário é obrigatório</p>
             `;
         }
         
-        conteudoResposta += `
+        sys_resp_scrn += `
                     <br>
                     <button id="BotCad" type="submit">Cadastrar</button>
     
@@ -67,18 +66,18 @@ function processaCadastroUsuario(req, res) {
         </html>
         `;
         
-        return res.end(conteudoResposta);
+        return res.end(sys_resp_scrn);
 
     } else {
         const usu = {
-            nome: dados.nome,
-            data: dados.data,
-            usuario: dados.usuario,
+            nome: user_dados_.nome,
+            data: user_dados_.data,
+            usuario: user_dados_.usuario,
         }
 
-        listaUSU.push(usu);
+        user_list.push(usu);
 
-        conteudoResposta = `
+        sys_resp_scrn = `
         <!DOCTYPE html>
         <head>
             <meta charset="UTF-8">
@@ -98,8 +97,8 @@ function processaCadastroUsuario(req, res) {
                 </thead>
                 <tbody>`;
         
-        for (const usu of listaUSU) {
-            conteudoResposta += `
+        for (const usu of user_list) {
+            sys_resp_scrn += `
                 <tr>
                     <td>${usu.nome}</td>
                     <td>${usu.data}</td>
@@ -108,7 +107,7 @@ function processaCadastroUsuario(req, res) {
                     `;
         }
 
-        conteudoResposta += `
+        sys_resp_scrn += `
                 </tbody>
             </table>
             <a class="btn btn-primary" href="/" role="button">Voltar ao Menu</a>
@@ -118,14 +117,14 @@ function processaCadastroUsuario(req, res) {
             </html>
                 `;
 
-        return res.end(conteudoResposta);
+        return res.end(sys_resp_scrn);
 
     }
 }
 
 
-function autenticar(req, res, next) {
-    if (req.session.usuarioAutenticado) {
+function check_user_(req, res, next) {
+    if (req.session.checked_user_) {
         next();
     } else {
         res.redirect("/login.html");
@@ -136,7 +135,7 @@ const app = express();
 app.use(cookieParser());
 
 app.use(session({
-    secret: "Minh4Chav3S3cr3T4",
+    secret: "myscrtky",
     resave: true,
     saveUninitialized: true,
     cookie: {
@@ -148,12 +147,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(process.cwd(), './PaginasHTML')));
 
-app.get('/', autenticar, (req, res) => {
-    const dataUltimoAcesso = req.cookies.DataUltimoAcesso;
+app.get('/', check_user_, (req, res) => {
+    const last_ac_user_ = req.cookies.DataUltimoAcesso;
     const data = new Date();
     res.cookie("DataUltimoAcesso", data.toLocaleString(), {
-        maxAge: 1000 * 60 * 60 * 24 * 30,
-        httpOnly: true    
+        maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true    
     });
     return res.end(`
         <!DOCTYPE html>
@@ -170,29 +168,28 @@ app.get('/', autenticar, (req, res) => {
                 <a href="/batepapo.html">Acesso ao bate papo</a>
             </body>
             <footer>
-                <p>Ultimo Acesso: ${dataUltimoAcesso}</p>
+                <p>Ultimo Acesso: ${last_ac_user_}</p>
             </footer>
         </html>        
     `)
 });
 
-app.get('/formulario.html', autenticar, (req, res) => {
+app.get('/formulario.html', check_user_, (req, res) => {
     res.sendFile(path.join(process.cwd(), './PaginasHTML/formulario.html'));
 });
 
-app.post('/formulario.html', autenticar, processaCadastroUsuario);
+app.post('/formulario.html', check_user_, user_process_cad);
 
 app.post('/login', (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
-
     console.log("Usuario:", usuario, "Senha:", senha); 
-
-    if (usuario && senha && usuario === 'Gustavo' && senha === '123') {
-        req.session.usuarioAutenticado = true;
+    if (usuario && senha && usuario === 'João' && senha === '2302') {
+        req.session.checked_user_ = true;
         res.redirect('/');
-    } else {
-        console.log("Login falhou. Usuário ou senha incorretos."); 
+    } 
+    else {
+        console.log("Login falhou. Usuário e(ou) senha incorretos."); 
         res.end(`
             <!DOCTYPE html>
                 <head>
@@ -209,14 +206,14 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/get-usuarios', (req, res) => {
-    res.json({ usuarios: listaUSU });
+    res.json({ usuarios: user_list });
 });
 
 function getCurrentTimestamp() {
     return new Date().toLocaleString();
 }
 
-app.post('/enviar-mensagem', autenticar, (req, res) => {
+app.post('/enviar-mensagem', check_user_, (req, res) => {
     const usuario = req.body.usuario;
     const mensagem = req.body.mensagem;
 
@@ -226,11 +223,11 @@ app.post('/enviar-mensagem', autenticar, (req, res) => {
         messages.push(novaMensagem);
         res.status(200).json({ success: true });
     } else {
-        res.status(400).json({ success: false, error: 'Usuário e mensagem são obrigatórios.' });
+        res.status(400).json({ success: false, error: 'Usuário e mensagem são obrigatórios' });
     }
 });
 
-app.get('/get-mensagens', autenticar, (req, res) => {
+app.get('/get-mensagens', check_user_, (req, res) => {
     res.json(messages);
 });
 
